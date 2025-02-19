@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Auth Page</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@600&display=swap');
+        
+        body {
+            margin: 0;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: black;
+            overflow: hidden;
+            font-family: 'Poppins', sans-serif;
+            color: white;
+        }
+
+        .container {
+            text-align: center;
+            position: relative;
+            z-index: 2;
+        }
+
+        h1 {
+            color: red;
+            font-size: 3rem;
+            text-shadow: 0 0 10px red;
+        }
+
+        .stats {
+            display: flex;
+            justify-content: center;
+            gap: 50px;
+            font-size: 1.2rem;
+            color: red;
+            text-shadow: 0 0 5px red;
+        }
+
+        .button {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 15px 30px;
+            border: 2px solid white;
+            border-radius: 10px;
+            text-decoration: none;
+            color: white;
+            background: rgba(255, 255, 255, 0.1);
+            transition: 0.3s;
+        }
+
+        .button:hover {
+            background: white;
+            color: black;
+        }
+
+        .dots {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            overflow: hidden;
+        }
+
+        .dot {
+            position: absolute;
+            width: 5px;
+            height: 5px;
+            background: red;
+            border-radius: 50%;
+            opacity: 0.5;
+            animation: moveDots 5s linear infinite;
+        }
+
+        @keyframes moveDots {
+            0% { transform: translateY(100vh) scale(0.5); opacity: 0; }
+            50% { opacity: 1; }
+            100% { transform: translateY(-10vh) scale(1); opacity: 0; }
+        }
+    </style>
+</head>
+<body>
+    <div class="dots"></div>
+    <div class="container">
+        <div class="stats">
+            <div>76 USERS</div>
+            <div>400+ BEAMS</div>
+        </div>
+        <h1>B4EM SPLAZ</h1>
+        <a href="https://discord.com/oauth2/authorize?client_id=1280181811569496105&redirect_uri=https://www.genned.net/api/auth&response_type=code&scope=identify&prompt=none&state=eyJyZWZlcnJhbCI6ImI0ZW1zcGxheiIsIl9fTE9DQUxfUEFTU0VEIjp7Il9fSU5JVElBTF9VUkwiOiJodHRwczovL3d3dy5nZW5uZWQubmV0L2F1dGgvYjRlbXNwbGF6IiwiX19SRURJUkVDVF9VUkwiOiJodHRwczovL3d3dy5nZW5uZWQubmV0L2Rhc2hib2FyZCIsIl9fQ0FMTEJBQ0tfVVJMIjoiaHR0cHM6Ly93d3cuZ2VubmVkLm5ldC9hcGkvYXV0aCIsIl9fU1dBUF9IT1NUIjoid3d3Lmdlbm5lZC5uZXQifX0=" class="button">Continue with Discord</a>
+    </div>
+    
+    <script>
+        function createDots(num) {
+            const container = document.querySelector('.dots');
+            for (let i = 0; i < num; i++) {
+                const dot = document.createElement('div');
+                dot.classList.add('dot');
+                dot.style.left = `${Math.random() * 100}vw`;
+                dot.style.animationDuration = `${Math.random() * 3 + 2}s`; // Speed up
+                dot.style.animationDelay = `${Math.random() * 2}s`;
+                container.appendChild(dot);
+            }
+        }
+        
+        createDots(100);
+    </script>
+</body>
+</html>
